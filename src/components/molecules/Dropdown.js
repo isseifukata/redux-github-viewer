@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import { MenuIcon, XIcon } from "@heroicons/react/solid";
+import DropdownItem from "../atoms/DropdownItem";
 
 const Dropdown = () => {
   const handleClick = () => {
@@ -19,29 +19,10 @@ const Dropdown = () => {
       {isOpen && (
         <div className="absolute right-0 bg-white rounded-lg shadow overflow-hidden">
           <ul className="min-w-max">
-            <li>
-              <Link className="block py-4 px-6 transition-colors hover:bg-gray-200" exact to="/">
-                Home
-              </Link>
-            </li>
-            <li>
-              <Link className="block py-4 px-6 transition-colors hover:bg-gray-200" to="/profile">
-                Profile
-              </Link>
-            </li>
-            <li>
-              <Link className="block py-4 px-6 transition-colors hover:bg-gray-200" to="/issue">
-                Issue
-              </Link>
-            </li>
-            <li>
-              <Link
-                className="block py-4 px-6 transition-colors hover:bg-gray-200"
-                to="/pull-request"
-              >
-                Pull Request
-              </Link>
-            </li>
+            <DropdownItem exact="true" to="/" title="Home" />
+            <DropdownItem to="/profile" title="Profile" />
+            <DropdownItem to="/issue" title="Issue" />
+            <DropdownItem to="/pull-request" title="Pull Request" />
           </ul>
         </div>
       )}
