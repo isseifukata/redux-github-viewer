@@ -1,5 +1,5 @@
 import React from 'react'
-import Default from '../components/templates/Default';
+import Default from '../components/templates/Issue';
 
 const Home = () => {
   return (

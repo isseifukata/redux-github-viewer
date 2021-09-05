@@ -6,7 +6,7 @@ const DropdownItem = (props) => {
   return (
     <li>
       <Link
-        className="block py-4 px-6 transition-colors hover:bg-gray-200"
+        className="block px-6 py-4 transition-colors hover:bg-gray-200"
         exact={props.exact}
         to={props.to}
       >

@@ -11,13 +11,13 @@ const Dropdown = () => {
     <div className="relative">
       <button onClick={handleClick}>
         {isOpen ? (
-          <XIcon className="h-8 w-8  text-white" />
+          <XIcon className="w-8 h-8 text-white" />
         ) : (
-          <MenuIcon className="h-8 w-8  text-white" />
+          <MenuIcon className="w-8 h-8 text-white" />
         )}
       </button>
       {isOpen && (
-        <div className="absolute right-0 bg-white rounded-lg shadow overflow-hidden">
+        <div className="absolute right-0 overflow-hidden bg-white rounded-lg shadow">
           <ul className="min-w-max">
             <DropdownItem exact="true" to="/" title="Home" />
             <DropdownItem to="/profile" title="Profile" />
