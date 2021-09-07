@@ -1,12 +1,23 @@
 import PropTypes from "prop-types";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { useSelector } from "react-redux";
 import IssueRow from "../molecules/IssueRow";
+import Button from "../atoms/Button";
 
 const TabContainer = (props) => {
-  const data = useSelector((state) => state.data);
-
   const [openTab, setOpenTab] = useState(0);
+
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const data = useSelector((store) => store.data);
+
+  const issueList = useMemo(() => {
+    const values = Object.values(data);
+    if (searchQuery.length === 0) {
+      return values;
+    }
+    return values.filter((value) => value.title.includes(searchQuery));
+  }, [data, searchQuery]);
 
   const tabDefaultStyle = "p-6 text-center text-lg rounded-t-lg";
   const tabActiveStyle = `${tabDefaultStyle} border-t border-l border-r border-gray-300 cursor-default`;
@@ -43,15 +54,17 @@ const TabContainer = (props) => {
               <p className="text-2xl font-bold">Issue</p>
               <input
                 type="text"
+                value={searchQuery}
                 className="w-full rounded-md"
                 placeholder="Issue名で検索"
+                onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <button className="inline-flex items-center px-6 py-2 text-center text-white transition-colors bg-green-600 rounded-md hover:bg-green-700">
+              <Button className="text-white bg-green-600 hover:bg-green-700">
                 New
-              </button>
-              <button className="inline-flex items-center px-6 py-2 text-center text-white transition-colors bg-red-600 rounded-md hover:bg-red-700">
+              </Button>
+              <Button className="text-white bg-red-600 hover:bg-red-700">
                 Delete
-              </button>
+              </Button>
             </div>
             <table className="w-full table-auto">
               <thead>
@@ -75,9 +88,17 @@ const TabContainer = (props) => {
                 </tr>
               </thead>
               <tbody>
-                {Object.keys(data).map((key) => {
-                  return <IssueRow key={key} details={data[key]} />;
-                })}
+                {issueList.length !== 0 ? (
+                  Object.keys(issueList).map((key) => {
+                    return <IssueRow key={key} details={issueList[key]} />;
+                  })
+                ) : (
+                  <tr>
+                    <td colSpan="6" className="p-3 text-center">
+                      データがありません
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
