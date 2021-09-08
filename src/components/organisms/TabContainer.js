@@ -1,15 +1,16 @@
 import PropTypes from "prop-types";
 import React, { useState, useMemo } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import IssueRow from "../molecules/IssueRow";
 import Button from "../atoms/Button";
 
 const TabContainer = (props) => {
+  const dispatch = useDispatch();
   const [openTab, setOpenTab] = useState(0);
 
   const [searchQuery, setSearchQuery] = useState("");
 
-  const data = useSelector((store) => store.data);
+  const data = useSelector((state) => state.issueReducer.data);
 
   const issueList = useMemo(() => {
     const values = Object.values(data);
@@ -59,7 +60,14 @@ const TabContainer = (props) => {
                 placeholder="Issue名で検索"
                 onChange={(e) => setSearchQuery(e.target.value)}
               />
-              <Button className="text-white bg-green-600 hover:bg-green-700">
+              <Button
+                onClick={() =>
+                  dispatch({
+                    type: "OPEN_MODAL_NEW_ISSUE",
+                  })
+                }
+                className="text-white bg-green-600 hover:bg-green-700"
+              >
                 New
               </Button>
               <Button className="text-white bg-red-600 hover:bg-red-700">
