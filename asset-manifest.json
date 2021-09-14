@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/redux-github-viewer/static/css/main.a6b1053c.chunk.css",
+    "main.js": "/redux-github-viewer/static/js/main.fc32c3a3.chunk.js",
+    "main.js.map": "/redux-github-viewer/static/js/main.fc32c3a3.chunk.js.map",
+    "runtime-main.js": "/redux-github-viewer/static/js/runtime-main.65713161.js",
+    "runtime-main.js.map": "/redux-github-viewer/static/js/runtime-main.65713161.js.map",
+    "static/js/2.c6617321.chunk.js": "/redux-github-viewer/static/js/2.c6617321.chunk.js",
+    "static/js/2.c6617321.chunk.js.map": "/redux-github-viewer/static/js/2.c6617321.chunk.js.map",
+    "static/js/3.a5f27590.chunk.js": "/redux-github-viewer/static/js/3.a5f27590.chunk.js",
+    "static/js/3.a5f27590.chunk.js.map": "/redux-github-viewer/static/js/3.a5f27590.chunk.js.map",
+    "index.html": "/redux-github-viewer/index.html",
+    "static/css/main.a6b1053c.chunk.css.map": "/redux-github-viewer/static/css/main.a6b1053c.chunk.css.map",
+    "static/js/2.c6617321.chunk.js.LICENSE.txt": "/redux-github-viewer/static/js/2.c6617321.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.65713161.js",
+    "static/js/2.c6617321.chunk.js",
+    "static/css/main.a6b1053c.chunk.css",
+    "static/js/main.fc32c3a3.chunk.js"
+  ]
+}
