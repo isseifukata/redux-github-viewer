@@ -41,26 +41,26 @@ const issueReducer = (state = issueInitialState, action) => {
   switch (action.type) {
     case "UPDATE_ISSUE":
       return {
+        index: index,
         data: {
           ...state.data,
           [action.payload.id]: {
             title: action.payload.title,
             description: action.payload.description,
+            status: action.payload.status,
           },
         },
       };
     case "ADD_ISSUE":
       return {
+        ...state,
         index: id,
         data: {
-          ...state.data,
-          id: {
-            id: [id],
-            title: action.payload.title,
-            description: action.payload.description,
-            status: 1,
-            createdBy: "",
-          },
+          [id]: id,
+          title: action.payload.title,
+          description: action.payload.description,
+          status: 1,
+          createdBy: "",
         },
       };
   }

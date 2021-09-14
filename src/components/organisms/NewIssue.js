@@ -52,10 +52,10 @@ const NewIssue = () => {
         </div>
         <div className="grid grid-cols-2 gap-x-6">
           <Button
-            onClick={addIssue}
+            onClick={() => addIssue(title, description)}
             className="text-white bg-green-600 hover:bg-green-700"
           >
-            更新
+            追加
           </Button>
           <Button
             onClick={() => closeModal(title, description)}

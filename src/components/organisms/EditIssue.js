@@ -8,17 +8,27 @@ const EditIssue = () => {
   const closeModal = () => {
     dispatch({ type: "CLOSE_MODAL" });
   };
+  const updateIssue = (id, title, description, status) => {
+    dispatch({
+      type: "UPDATE_ISSUE",
+      payload: {
+        id: id,
+        title: title,
+        description: description,
+        status: status,
+      },
+    });
+  };
   const issueId = useSelector((state) => state.modalReducer.issueId);
   const issueData = useSelector((state) => state.issueReducer.data);
   const issue = issueData[issueId];
-
   const [title, setTitle] = useState(issue.title);
   const [description, setDescription] = useState(issue.description);
   const [status, setStatus] = useState(issue.status);
 
   return (
     <div className="max-w-md mx-auto">
-      <h2 className="mb-8 text-3xl">Issueを追加</h2>
+      <h2 className="mb-8 text-3xl">Issueを編集</h2>
       <div className="space-y-8">
         <div>
           <label className="block mb-2" htmlFor="title">
@@ -61,7 +71,13 @@ const EditIssue = () => {
           </select>
         </div>
         <div className="grid grid-cols-2 gap-x-6">
-          <Button className="text-white bg-green-600 hover:bg-green-700">
+          <Button
+            onClick={() => {
+              updateIssue(issueId, title, description, status);
+              closeModal();
+            }}
+            className="text-white bg-green-600 hover:bg-green-700"
+          >
             更新
           </Button>
           <Button
