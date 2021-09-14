@@ -1,8 +1,8 @@
 {
   "name": "redux-github-viewer",
   "version": "0.1.0",
-  "private": true,
-   "homepage": "https://isseifukata.github.io/redux-github-viewer",
+  "homepage": "https://isseifukata.github.io/redux-github-viewer",
+  "repository": "git@github.com:isseifukata/redux-github-viewer.git",
   "dependencies": {
     "@craco/craco": "^6.2.0",
     "@heroicons/react": "^1.0.4",
